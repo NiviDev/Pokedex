@@ -5,8 +5,8 @@ import (
 	"github.com/mtslzr/pokeapi-go/structs"
 )
 
-func searchByName(name string) (structs.Pokemon, error) {
-	l, err := pokeapi.Pokemon(name)
+func searchPokemon(id string) (structs.Pokemon, error) {
+	l, err := pokeapi.Pokemon(id)
 	if err != nil {
 		return structs.Pokemon{}, err
 	}

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -22,15 +23,20 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-// Greet returns a greeting for the given name
-func (a *App) SearchByName(name string) [2]string {
-	name = strings.ToLower(name)
-	pokemon, err := searchByName(name)
+// Search pokemon by name or by pokedex ID, and returns
+// name, weight, height, and the default sprite
+func (a *App) SearchPokemon(query string) [4]string {
+	query = strings.ToLower(query)
+	pokemon, err := searchPokemon(query)
 	if err != nil {
-		return [2]string{fmt.Sprintf("Error %s", err), ""}
+		return [4]string{fmt.Sprintf("Error %s", err), "", "", ""}
 	}
-	pokemonData := fmt.Sprintf("Name: %s. Weight: %d. Height: %d", pokemon.Name, pokemon.Weight, pokemon.Height)
-	sprite := pokemon.Sprites.FrontDefault
-	result := [2]string{pokemonData, sprite}
+
+	name := capitaliceFirstLetter(pokemon.Name)
+	weight := strconv.Itoa(pokemon.Weight)
+	height := strconv.Itoa(pokemon.Height)
+	id := strconv.Itoa(pokemon.ID)
+
+	result := [4]string{name, weight, height, id}
 	return result
 }
