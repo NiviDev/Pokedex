@@ -17,10 +17,36 @@ function App() {
         });
     }
 
+    function nextPokemon() {
+        if (pokemon && pokemon.id) {
+            // Usa el ID del siguiente Pokémon
+            SearchPokemon((pokemon.id + 1).toString()).then((result) => {
+                setPokemon(result);
+                // Actualiza también el campo de búsqueda para mantener todo sincronizado
+                setName(result.name);
+            });
+        }
+    }
+
+    function previousPokemon() {
+        if (pokemon && pokemon.id) {
+            // Usa el ID del siguiente Pokémon
+            SearchPokemon((pokemon.id - 1).toString()).then((result) => {
+                setPokemon(result);
+                // Actualiza también el campo de búsqueda para mantener todo sincronizado
+                setName(result.name);
+            });
+        }
+    }
+
     return (
         <div id="App">
             <SearchBar updateName={updateName} search={search}/>
             <PokemonData pokemon={pokemon} />
+            <div id="buttons" className="buttons-box">
+                <button className="btn" onClick={previousPokemon}>Prev</button>
+                <button className="btn" onClick={nextPokemon}>Next</button>
+            </div>
             <footer>
                 <p>
                 This Pokédex is an educational project with no commercial purpose. Pokémon and all its 
