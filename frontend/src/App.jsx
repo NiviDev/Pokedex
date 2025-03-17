@@ -2,9 +2,12 @@ import {useState} from 'react';
 import logo from './assets/images/logo-universal.png';
 import './App.css';
 import {SearchPokemon} from "../wailsjs/go/main/App";
+import SearchBar from './SearchBar';
+import PokemonData from './PokemonData';
+
 
 function App() {
-    const [resultText, setResultText] = useState("Search a Pokémon by name or pokedex ID");
+    const [resultText, setResultText] = useState("");
     const [name, setName] = useState('');
     const updateName = (e) => setName(e.target.value);
     const updateResultText = (result) => setResultText(result);
@@ -23,14 +26,14 @@ function App() {
 
     return (
         <div id="App">
-            <div id="result" className="result">{resultText}</div>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${imageUrl}.png`} alt="pokemon-sprite" width="200" height="200"/>
-            <div id="result" className="result">Weight: {weight} hectograms</div>
-            <div id="result" className="result">Height: {height} decimeters</div>
-            <div id="input" className="input-box">
-                <input id="name" className="input" onChange={updateName} autoComplete="off" name="input" type="text"/>
-                <button className="btn" onClick={search}>Search</button>
-            </div>
+            <SearchBar updateName={updateName} search={search}/>
+            <PokemonData resultText={resultText} imageUrl={imageUrl} weight={weight} height={height}/>
+            <footer>
+                <p>
+                This Pokédex is an educational project with no commercial purpose. Pokémon and all its 
+                elements are property of Nintendo, The Pokémon Company and Game Freak. Created for learning purposes.
+                </p> 
+            </footer>
         </div>
     )
 }

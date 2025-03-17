@@ -1,0 +1,23 @@
+.pokemon-data {
+    padding: 5px;
+    margin: 30px;
+    border-radius: 20px;
+background: #283747;
+box-shadow:  5px 5px 10px #1a242e,
+             -5px -5px 10px #364a60;
+  }
+
+.result-text {
+    color: #F4F4F4;
+    font-size: 25px;
+}
+
+.data-text {
+    color: #F4F4F4;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.pokemon-logo {
+    padding: 40px;
+}
+
