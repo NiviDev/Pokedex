@@ -7,27 +7,20 @@ import PokemonData from './PokemonData';
 
 
 function App() {
-    const [resultText, setResultText] = useState("");
+    const [pokemon, setPokemon] = useState(null);
     const [name, setName] = useState('');
     const updateName = (e) => setName(e.target.value);
-    const updateResultText = (result) => setResultText(result);
-    const [imageUrl, setImageUrl] = useState('');
-    const [weight, setWeight] = useState('');
-    const [height, setHeight] = useState('');
 
     function search() {
-        SearchPokemon(name).then(([name, weight, height, spriteUrl]) => {
-            updateResultText(name);
-            setWeight(weight);
-            setHeight(height);
-            setImageUrl(spriteUrl);
+        SearchPokemon(name).then((result) => {
+            setPokemon(result);
         });
     }
 
     return (
         <div id="App">
             <SearchBar updateName={updateName} search={search}/>
-            <PokemonData resultText={resultText} imageUrl={imageUrl} weight={weight} height={height}/>
+            <PokemonData pokemon={pokemon} />
             <footer>
                 <p>
                 This Pokédex is an educational project with no commercial purpose. Pokémon and all its 

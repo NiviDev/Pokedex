@@ -2,9 +2,9 @@ package main
 
 import (
 	"context"
-	"fmt"
-	"strconv"
 	"strings"
+
+	"github.com/mtslzr/pokeapi-go/structs"
 )
 
 // App struct
@@ -24,19 +24,15 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // Search pokemon by name or by pokedex ID, and returns
-// name, weight, height, and the default sprite
-func (a *App) SearchPokemon(query string) [4]string {
+// the pokemon struct
+func (a *App) SearchPokemon(query string) structs.Pokemon {
 	query = strings.ToLower(query)
 	pokemon, err := searchPokemon(query)
 	if err != nil {
-		return [4]string{fmt.Sprintf("Error %s", err), "", "", ""}
+		return structs.Pokemon{}
 	}
 
-	name := capitaliceFirstLetter(pokemon.Name)
-	weight := strconv.Itoa(pokemon.Weight)
-	height := strconv.Itoa(pokemon.Height)
-	id := strconv.Itoa(pokemon.ID)
+	pokemon.Name = capitaliceFirstLetter(pokemon.Name)
 
-	result := [4]string{name, weight, height, id}
-	return result
+	return pokemon
 }
