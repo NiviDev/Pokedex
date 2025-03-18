@@ -1,21 +1,21 @@
 # Pokedex
-Una pokedex desarrollada en Go, es un proyecto personal
-# README
 
-## About
+## About 
+This project began as 'a Pokédex made in Go' where I managed data using the PokeAPI. For the frontend implementation, I used Wails, which allows the use of web technologies and greatly simplified the process of creating a user interface. Finally, here is a simple and perhaps not highly polished version of a project that I found very entertaining, educational, and filled with nostalgia.
 
-This is the official Wails React template.
+## Attributions
+- [PokeAPI](https://pokeapi.co/)
+- [PokeAPI Wrapper for go by mtslzr](https://github.com/mtslzr/pokeapi-go)
+- [Wails](https://wails.io/)
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+### Sources
+- [Card and buttons design](https://neumorphism.io/)
+- [Pokémon Logo](https://www.stickpng.com/es/img/iconos-logotipos-emojis/logotipos-de-radio/logotipo-de-pokemon)
 
-## Live Development
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
 
-## Building
+## Disclaimer
 
-To build a redistributable, production mode package, use `wails build`.
+This Pokédex is a personal project created solely for educational and learning purposes. Pokémon and all its characters, names, images, and related content are the exclusive property of Nintendo, The Pokémon Company, and Game Freak. This project is not affiliated with, endorsed by, or sponsored by Nintendo, The Pokémon Company, or Game Freak.
+This application has no commercial purpose and is not distributed with the intention of infringing copyright. All Pokémon rights belong to their respective owners.
+I developed this Pokédex as a programming exercise and to improve my technical skills, with no intention of competing with official products or obtaining economic benefit.

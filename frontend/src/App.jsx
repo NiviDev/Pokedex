@@ -19,10 +19,8 @@ function App() {
 
     function nextPokemon() {
         if (pokemon && pokemon.id) {
-            // Usa el ID del siguiente Pokémon
             SearchPokemon((pokemon.id + 1).toString()).then((result) => {
                 setPokemon(result);
-                // Actualiza también el campo de búsqueda para mantener todo sincronizado
                 setName(result.name);
             });
         }
@@ -30,10 +28,8 @@ function App() {
 
     function previousPokemon() {
         if (pokemon && pokemon.id) {
-            // Usa el ID del siguiente Pokémon
             SearchPokemon((pokemon.id - 1).toString()).then((result) => {
                 setPokemon(result);
-                // Actualiza también el campo de búsqueda para mantener todo sincronizado
                 setName(result.name);
             });
         }
